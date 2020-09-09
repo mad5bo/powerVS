@@ -55,18 +55,7 @@
       "group_name": "cloud"
     },
     
-   {
-      "name": "ibmcloud_zone",
-      "type": "string",
-      "description": "IBM Cloud Zone (e.g., us-south or eu-de-1)",
-      "default": "us-south",
-      "hidden": false,
-      "label": "IBM Cloud Zone (e.g., us-south or  eu-de-1)",
-      "secured": false,
-      "required": true,
-      "immutable": false,
-      "group_name": "cloud"
-    }, 
+ 
     
     
     {
