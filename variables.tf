@@ -61,10 +61,10 @@ variable "system_type" {
     default     = "s922"
 }
 
-#variable "migratable" {
-#    description = "Can the VM be migrated - true/false"
-#    default     = "true"
-#}
+variable "migratable" {
+    description = "Can the VM be migrated - true/false"
+    default     = "true"
+}
 
 variable "image_name" {
     description = "Name of the image from which the VM should be deployed"
