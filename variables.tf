@@ -68,7 +68,7 @@ variable "migratable" {
 
 variable "image_name" {
     description = "Name of the image from which the VM should be deployed"
-    default     = "IBMi74-MOP"
+    default     = ""
 }
 
 variable "replication_policy" {
