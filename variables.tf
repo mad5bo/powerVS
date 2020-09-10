@@ -1,5 +1,13 @@
+#####################################################################
+##
+##      Created 9/8/20 by IBMDemo. for PowerVS-IBMi
+##
+#####################################################################
+
 variable "ibmcloud_api_key" {
     description = "Denotes the IBM Cloud API key to use"
+    default     = "nlRgZOKJZz2IskYnJsuRJ0GWFAeQ1NS9NIInf0rgTWSQ"
+    
 }
 
 variable "ibmcloud_region" {
@@ -14,7 +22,7 @@ variable "ibmcloud_region" {
 
 variable "vm_name" {
     description = "Name of the VM"
-    default     = "demo-ibmi"
+    default     = "demo-VMi"
 }
 
 #variable "vm_private_key_base64" {
@@ -34,7 +42,7 @@ variable "memory" {
 
 variable "processors" {
     description = "Number of virtual processors to allocate to the VM"
-    default     = "1"
+    default     = "0.25"
 }
 
 variable "proc_type" {
@@ -44,6 +52,7 @@ variable "proc_type" {
 
 variable "ssh_key_name" {
     description = "SSH key name in IBM Cloud to be used for SSH logins"
+    default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCocSaFdNPG2CQ5dFX9b1w0y+ihDE6F7t0yaHeg6s7auLONkR0hGb3h2p/K7pUfQ8J/UHEnTsR6jPp9QSLgpzqzTqDK7fihmv51HiZ7kyfprwFwHv3QwomcJ6L6xAsUTcPYE+aWTIxRm2iwE96YSKnqFip3J0+TXtI6EBxcYt2n0DKdn/i/gUPiGg1WW9bFbXdxU7AZdFTgtCh2D27sH0ZA/RuJmtUD3rVTZD6hqjUoG/Eg0CT9ukhameVjcX/i3Kj05xlhSalIyd816aRhP6BnIeMrwdyevO8RIeWV1XvbHOyopfWel6lQKfSuZSBqVpmO35MXeeN3KJhdvh4dJJ4B "
 }
 
 #variable "shareable" {
@@ -53,7 +62,7 @@ variable "ssh_key_name" {
 
 variable "networks" {
     description = "List of networks that should be attached to the VM"
-    default     = ["internal","public-192_168_130_56-29-VLAN_2067"]
+    default     = ["internal","public-192_168_130_56-29-VLAN_2000"]
 }
 
 variable "system_type" {
