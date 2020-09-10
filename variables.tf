@@ -14,7 +14,7 @@ variable "ibmcloud_region" {
 
 variable "vm_name" {
     description = "Name of the VM"
-    default     = "demo-VM"
+    default     = "demo-ibmi"
 }
 
 #variable "vm_private_key_base64" {
@@ -24,7 +24,7 @@ variable "vm_name" {
 
 variable "power_instance_id" {
     description = "Power Virtual Server instance ID associated with your IBM Cloud account (note that this is NOT the API key)"
-    default  =  "f0f71cbe-7997-4924-8321-7f876a494973"
+    default  =  "30295a9a-9ffa-4b5b-8b7d-efa06f3d38a7"
 }
 
 variable "memory" {
