@@ -1,7 +1,8 @@
 {
-  "input_datatypes": [
-  ],
   "output_datatype": "content_template_output",
+  "input_datatypes": [ ],
+  "input_namespaces": [ ],
+  "output_namespace": "",
   "input_groups": [
     {
       "name": "cloud",
@@ -24,119 +25,108 @@
       "label": "Network Configuration"
     }
   ],
-  "output_groups": [
-    {
-      "name": "content_template_output",
-      "label": "Outputs"
-    }
-  ],
+  "output_groups": [  {
+    "name": "content_template_output",
+    "label": "Outputs"
+  } ],
   "template_input_params": [
     {
       "name": "ibmcloud_api_key",
-      "type": "string",
-      "description": "IBM Cloud API Key",
-      "hidden": false,
       "label": "IBM Cloud API Key",
-      "secured": true,
+      "description": "Denotes the IBM Cloud API key to use",
+      "type": "string",
+      "default": "nlRgZOKJZz2IskYnJsuRJ0GWFAeQ1NS9NIInf0rgTWSQ",
+      "regex": "",
+      "group_name": "cloud",
       "required": true,
+      "secured": true,
+      "hidden": false,
       "immutable": false,
-      "group_name": "cloud"
+      "immutable_after_create": false
     },
     {
       "name": "ibmcloud_region",
-      "type": "string",
-      "description": "IBM Cloud Region (e.g., us-south)",
-      "default": "us-south",
-      "hidden": false,
       "label": "IBM Cloud Region (e.g., us-south)",
-      "secured": false,
-      "required": true,
-      "immutable": false,
-      "group_name": "cloud"
-    },
-    
- 
-    
-    
-    {
-      "name": "power_instance_id",
+      "description": "Denotes which IBM Cloud region to connect to",
       "type": "string",
-      "description": "Power Virtual Server Instance ID",
-      "hidden": false,
-      "default": "30295a9a-9ffa-4b5b-8b7d-efa06f3d38a7",
-      "label": "Power Virtual Server Instance ID",
-      "secured": false,
+      "default": "us-south",
+      "regex": "",
+      "group_name": "cloud",
       "required": true,
-      "immutable": false,
-      "group_name": "cloud"
-    },
-    {
-      "name": "image_name",
-      "type": "string",
-      "description": "Name of Image to Deploy",
-      "default": "ibmi73vm",
-      "hidden": false,
-      "label": "Name of Image to Deploy",
       "secured": false,
-      "required": true,
-      "immutable": false,
-      "group_name": "image"
-    },
-    {
-      "name": "system_type",
-      "type": "string",
-      "description": "System on which to Deploy",
-      "default": "s922",
       "hidden": false,
-      "label": "System on which to Deploy",
-      "secured": false,
-      "required": true,
       "immutable": false,
-      "group_name": "system"
+      "immutable_after_create": false
     },
     {
       "name": "vm_name",
-      "type": "string",
-      "description": "Name of the VM",
-      "default": "demo-VM",
-      "hidden": false,
       "label": "Name of the VM",
-      "secured": false,
-      "required": true,
-      "immutable": false,
-      "group_name": "vm"
-    },
-
-     {
-      "name": "ssh_key_name",
+      "description": "Name of the VM",
       "type": "string",
-      "description": "Name of SSH Key in IBM Cloud for Login",
-      "hidden": false,
-      "label": "Name of SSH Key in IBM Cloud for Login",
-      "secured": false,
+      "default": "demo-VMi",
+      "regex": "",
+      "group_name": "vm",
       "required": true,
+      "secured": false,
+      "hidden": false,
       "immutable": false,
-      "group_name": "vm"
+      "immutable_after_create": false
+    },
+    {
+      "name": "power_instance_id",
+      "label": "Power Virtual Server Instance ID",
+      "description": "Power Virtual Server instance ID associated with your IBM Cloud account (note that this is NOT the API key)",
+      "type": "string",
+      "default": "30295a9a-9ffa-4b5b-8b7d-efa06f3d38a7",
+      "regex": "",
+      "group_name": "cloud",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "memory",
+      "label": "Amount of Memory (GB)",
+      "description": "Amount of memory (GB) to be allocated to the VM",
+      "type": "string",
+      "default": "12",
+      "regex": "",
+      "group_name": "vm",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
     },
     {
       "name": "processors",
-      "type": "string",
-      "description": "Number of Virtual Processors",
-      "default": "1",
-      "hidden": false,
       "label": "Number of Virtual Processors",
-      "secured": false,
+      "description": "Number of virtual processors to allocate to the VM",
+      "type": "string",
+      "default": "0.25",
+      "regex": "",
+      "group_name": "vm",
       "required": true,
+      "secured": false,
+      "hidden": false,
       "immutable": false,
-      "group_name": "vm"
+      "immutable_after_create": false
     },
     {
       "name": "proc_type",
-      "type": "string",
-      "description": "Processor Type",
-      "hidden": false,
       "label": "Processor Type",
+      "description": "Processor type for the LPAR - shared/dedicated",
+      "type": "string",
+      "default": "shared",
+      "regex": "",
+      "group_name": "vm",
+      "required": true,
       "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false,
       "options": [
         {
           "value": "shared",
@@ -147,30 +137,66 @@
           "value": "dedicated",
           "label": "Dedicated"
         }
-      ],
-      "required": true,
-      "immutable": false,
-      "group_name": "vm"
+      ]
     },
     {
-      "name": "memory",
+      "name": "ssh_key_name",
+      "label": "Name of SSH Key in IBM Cloud for Login",
+      "description": "SSH key name in IBM Cloud to be used for SSH logins",
       "type": "string",
-      "description": "Amount of Memory (GB)",
-      "default": "4",
-      "hidden": false,
-      "label": "Amount of Memory (GB)",
-      "secured": false,
+      "default": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCocSaFdNPG2CQ5dFX9b1w0y+ihDE6F7t0yaHeg6s7auLONkR0hGb3h2p/K7pUfQ8J/UHEnTsR6jPp9QSLgpzqzTqDK7fihmv51HiZ7kyfprwFwHv3QwomcJ6L6xAsUTcPYE+aWTIxRm2iwE96YSKnqFip3J0+TXtI6EBxcYt2n0DKdn/i/gUPiGg1WW9bFbXdxU7AZdFTgtCh2D27sH0ZA/RuJmtUD3rVTZD6hqjUoG/Eg0CT9ukhameVjcX/i3Kj05xlhSalIyd816aRhP6BnIeMrwdyevO8RIeWV1XvbHOyopfWel6lQKfSuZSBqVpmO35MXeeN3KJhdvh4dJJ4B ",
+      "regex": "",
+      "group_name": "vm",
       "required": true,
+      "secured": false,
+      "hidden": false,
       "immutable": false,
-      "group_name": "vm"
+      "immutable_after_create": false
+    },
+    {
+      "name": "networks",
+      "label": "Name of Networks to Attach",
+      "description": "List of networks that should be attached to the VM",
+      "type": "list",
+      "default": [
+        "internal",
+        "public-192_168_130_56-29-VLAN_2000"
+      ],
+      "regex": "",
+      "group_name": "network",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "system_type",
+      "label": "System on which to Deploy",
+      "description": "Type of system on which the VM should be created - s922/e880",
+      "type": "string",
+      "default": "s922",
+      "regex": "",
+      "group_name": "system",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
     },
     {
       "name": "migratable",
-      "type": "string",
-      "description": "Can the VM be Migrated",
-      "hidden": false,
       "label": "Can the VM be Migrated",
+      "description": "Can the VM be migrated - true/false",
+      "type": "string",
+      "default": "true",
+      "regex": "",
+      "group_name": "vm",
+      "required": true,
       "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false,
       "options": [
         {
           "value": "true",
@@ -181,54 +207,59 @@
           "value": "false",
           "label": "False"
         }
-      ],
+      ]
+    },
+    {
+      "name": "image_name",
+      "label": "Name of Image to Deploy",
+      "description": "Name of the image from which the VM should be deployed",
+      "type": "string",
+      "default": "ibmi73vm",
+      "regex": "",
+      "group_name": "image",
       "required": true,
+      "secured": false,
+      "hidden": false,
       "immutable": false,
-      "group_name": "vm"
+      "immutable_after_create": false
     },
     {
       "name": "replication_policy",
-      "type": "string",
-      "description": "Replication Policy",
-      "default": "none",
-      "hidden": false,
       "label": "Replication Policy",
-      "secured": false,
+      "description": "Replication policy of the VM",
+      "type": "string",
+      "default": "none",
+      "regex": "",
+      "group_name": "vm",
       "required": true,
+      "secured": false,
+      "hidden": false,
       "immutable": false,
-      "group_name": "vm"
+      "immutable_after_create": false
     },
     {
       "name": "replicants",
-      "type": "string",
-      "description": "Number of VMs to Deploy",
-      "default": "1",
-      "hidden": false,
       "label": "Number of VMs to Deploy",
-      "secured": false,
+      "description": "Number of VM instances to deploy",
+      "type": "string",
+      "default": "1",
+      "regex": "",
+      "group_name": "vm",
       "required": true,
-      "immutable": false,
-      "group_name": "vm"
-    },
-    {
-      "name": "networks",
-      "type": "list",
-      "description": "Name of Networks to Attach",
+      "secured": false,
       "hidden": false,
-      "label": "Name of Networks to Attach",
-      "secured": false,
-      "required": true,
       "immutable": false,
-      "group_name": "network"
+      "immutable_after_create": false
     }
   ],
-  "template_output_params": [
-    {
-      "name": "ip_address",
-      "type": "string",
-      "hidden": false,
-      "label": "VM IP Address",
-      "secured": false
-    }
-  ]
+  "template_output_params": [  {
+    "name": "ip_address",
+    "label": "VM IP Address",
+    "description": "null",
+    "group_name": "",
+    "secured": false,
+    "hidden": false,
+    "shortname": "",
+    "type": "string"
+  } ]
 }
