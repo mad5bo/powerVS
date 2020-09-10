@@ -5,7 +5,8 @@ data "ibm_pi_network" "power_networks" {
 }
 
 data "ibm_pi_image" "power_images" {
-    pi_image_name        = "${var.image_name}"
+#    pi_image_name        = "${var.image_name}"
+    pi_image_name        = "ibmi73vm"
     pi_cloud_instance_id = "${var.power_instance_id}"
 }
 
