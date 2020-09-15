@@ -13,7 +13,8 @@ data "ibm_pi_network" "power_networks" {
 data "ibm_pi_image" "power_images" {
 #    pi_image_name        = "${var.image_name}"
     pi_image_name        = "ibmi73vm"
-    pi_cloud_instance_id = "${var.power_instance_id}"
+#    pi_cloud_instance_id = "${var.power_instance_id}"
+    pi_cloud_instance_id = "30295a9a-9ffa-4b5b-8b7d-efa06f3d38a7"
 }
 
 resource "ibm_pi_instance" "pvminstance" {
