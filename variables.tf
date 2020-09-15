@@ -15,10 +15,10 @@ variable "ibmcloud_region" {
     default     = "us-south"
 }
 
-#variable "ibmcloud_zone" {
-#    description = "Denotes the zone within the region to connect to (only needed for multi-zone regions--e.g., eu-de-1)"
-#    default     = "us-south"
-#}
+variable "ibmcloud_zone" {
+    description = "Denotes the zone within the region to connect to (only needed for multi-zone regions--e.g., eu-de-1)"
+    default     = "us-south"
+}
 
 variable "vm_name" {
     description = "Name of the VM"
