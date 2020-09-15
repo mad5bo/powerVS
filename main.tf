@@ -32,6 +32,7 @@ resource "ibm_pi_instance" "pvminstance" {
     pi_replication_policy = "${var.replication_policy}"
 #    pi_replication_scheme = "${var.replication_scheme}"
     pi_replicants         = "${var.replicants}"
-    pi_cloud_instance_id  = "${var.power_instance_id}"
+ #   pi_cloud_instance_id  = "${var.power_instance_id}"
+    pi_cloud_instance_id  = "30295a9a-9ffa-4b5b-8b7d-efa06f3d38a7"
 
 }
