@@ -59,6 +59,20 @@
       "immutable_after_create": false
     },
     {
+      "name": "ibmcloud_zone",
+      "label": "IBM Cloud Zone (e.g., us-south or  eu-de-1)",
+      "description": "Denotes the zone within the region to connect to (only needed for multi-zone regions--e.g., eu-de-1)",
+      "type": "string",
+      "default": "us-south",
+      "regex": "",
+      "group_name": "cloud",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
       "name": "vm_name",
       "label": "Name of the VM",
       "description": "Name of the VM",
