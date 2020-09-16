@@ -22,8 +22,8 @@ resource "ibm_pi_instance" "pvminstance" {
     pi_instance_name      = "${var.vm_name}"
     pi_proc_type          = "${var.proc_type}"
 #    pi_migratable         = "${var.migratable}"
-#    pi_image_id           = "${data.ibm_pi_image.power_images.id}"
-    pi_image_id           = "${data.ibm_pi_image.power_images.imageid}"
+    pi_image_id           = "${data.ibm_pi_image.power_images.id}"
+#    pi_image_id           = "${data.ibm_pi_image.power_images.imageid}"
 #    pi_image_id           = "${data.ibm_pi_image.power_images.imageid}"
     pi_volume_ids         = []
     pi_network_ids        = ["${data.ibm_pi_network.power_networks.*.networkid}"]
