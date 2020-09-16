@@ -1,19 +1,25 @@
-#####################################################################
-##
-##      Created 9/8/20 by IBMDemo. for PowerVS-IBMi
-##
-#####################################################################
-
-data "ibm_pi_network" "power_networks" {
-    count                = "${length(var.networks)}"
-    pi_network_name      = "${var.networks[count.index]}"
-    pi_cloud_instance_id = "${var.power_instance_id}"
-}
+#data "ibm_pi_network" "power_networks" {
+#    count                = "${length(var.networks)}"
+#    pi_network_name      = "${var.networks[count.index]}"
+#    pi_cloud_instance_id = "${var.power_instance_id}"
+#}
 
 data "ibm_pi_image" "power_images" {
     pi_image_name        = "${var.image_name}"
 #    pi_image_name        = "ibmi73vm"
     pi_cloud_instance_id = "${var.power_instance_id}"
+}
+
+resource "ibm_pi_network" "power_networks" {
+  count                = 1
+  pi_network_name      = "${var.networkname}"
+  pi_cloud_instance_id = "${var.power_instance_id}"
+  pi_network_type      = "pub-vlan"
+}
+
+data "ibm_pi_public_network" "dsnetwork" {
+  depends_on           = ["ibm_pi_network.power_networks"]
+  pi_cloud_instance_id = "${var.power_instance_id}"
 }
 
 resource "ibm_pi_instance" "pvminstance" {
@@ -26,7 +32,8 @@ resource "ibm_pi_instance" "pvminstance" {
 #    pi_image_id           = "${data.ibm_pi_image.power_images.imageid}"
 #    pi_image_id           = "${data.ibm_pi_image.power_images.imageid}"
     pi_volume_ids         = []
-    pi_network_ids        = ["${data.ibm_pi_network.power_networks.*.networkid}"]
+#    pi_network_ids        = ["${data.ibm_pi_network.power_networks.*.networkid}"]
+    pi_network_ids        = ["${data.ibm_pi_public_network.dsnetwork.id}"]
     pi_key_pair_name      = "${var.ssh_key_name}"
     pi_sys_type           = "${var.system_type}"
     pi_replication_policy = "${var.replication_policy}"
