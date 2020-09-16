@@ -49,7 +49,7 @@
       "label": "IBM Cloud Region (e.g., us-south)",
       "description": "Denotes which IBM Cloud region to connect to",
       "type": "string",
-      "default": "us-south",
+      "default": "us-east",
       "regex": "",
       "group_name": "cloud",
       "required": true,
@@ -72,6 +72,22 @@
       "immutable": false,
       "immutable_after_create": false
     },
+    
+    {
+      "name": "networkname",
+      "label": "Name of the Network",
+      "description": "Name of the Network",
+      "type": "string",
+      "default": "CMN",
+      "regex": "",
+      "group_name": "vm",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    
     {
       "name": "vm_name",
       "label": "Name of the VM",
@@ -167,22 +183,7 @@
       "immutable": false,
       "immutable_after_create": false
     },
-    {
-      "name": "networks",
-      "label": "Name of Networks to Attach",
-      "description": "List of networks that should be attached to the VM",
-      "type": "list",
-      "default": [
-        "public-192_168_130_56-29-VLAN_2000"
-      ],
-      "regex": "",
-      "group_name": "network",
-      "required": true,
-      "secured": false,
-      "hidden": false,
-      "immutable": false,
-      "immutable_after_create": false
-    },
+    
     {
       "name": "system_type",
       "label": "System on which to Deploy",
