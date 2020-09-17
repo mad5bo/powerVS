@@ -5,8 +5,10 @@ data "ibm_pi_image" "PowerVS_images" {
 
 resource "ibm_pi_network" "PowerVS_networks" {
   count                = 1
-  pi_network_name      = "${var.networkname}"
-  pi_cloud_instance_id = "${var.power_instance_id}"
+#  pi_network_name      = "${var.networkname}"
+  pi_network_name      = var.networkname
+#  pi_cloud_instance_id = "${var.power_instance_id}"
+  pi_cloud_instance_id = var.powerinstanceid 
   pi_network_type      = "pub-vlan"
 }
 
