@@ -11,7 +11,7 @@ resource "ibm_pi_network" "PowerVS_networks" {
 }
 
 data "ibm_pi_public_network" "dsnetwork" {
-#  depends_on           = ["ibm_pi_network.PowerVS_networks"]
+  depends_on           = ["ibm_pi_network.PowerVS_networks"]
   pi_cloud_instance_id = "${var.power_instance_id}"
 }
 
