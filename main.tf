@@ -3,19 +3,22 @@ data "ibm_pi_image" "PowerVS_images" {
     pi_cloud_instance_id = "${var.power_instance_id}"
 }
 
-resource "ibm_pi_network" "PowerVS_networks" {
-  count                = 1
-   pi_network_name      = "${var.networkname}"
+resource "ibm_pi_network" "power_networks" {
+#  count                = 1
+#  pi_network_name      = "${var.networkname}"
 #  pi_cloud_instance_id = "${var.power_instance_id}"
-  pi_cloud_instance_id = var.PowerVS_instanceid 
-  pi_network_type      = "pub-vlan"
+#  pi_network_type      = "pub-vlan"
+pi_network_name = var.networkname
+pi_cloud_instance_id = var.power_instance_id
+pi_network_type = "pub-vlan"
 }
 
 data "ibm_pi_public_network" "dsnetwork" {
-  depends_on           = ["ibm_pi_network.PowerVS_networks"]
-  pi_cloud_instance_id = "${var.power_instance_id}"
+#  depends_on           = ["ibm_pi_network.power_networks"]
+#  pi_cloud_instance_id = "${var.power_instance_id}"
+depends_on = [ibm_pi_network.PowerVS_networks]
+pi_cloud_instance_id = var.power_instance_id
 }
-
 resource "ibm_pi_instance" "PowerVS_instance" {
     pi_memory             = "${var.memory}"
     pi_processors         = "${var.processors}"
