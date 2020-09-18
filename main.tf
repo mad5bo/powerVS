@@ -3,7 +3,7 @@ data "ibm_pi_image" "PowerVS_images" {
     pi_cloud_instance_id = "${var.power_instance_id}"
 }
 
-resource "ibm_pi_network" "power_networks" {
+resource "ibm_pi_network" "PowerVS_networks" {
 #  count                = 1
 #  pi_network_name      = "${var.networkname}"
 #  pi_cloud_instance_id = "${var.power_instance_id}"
